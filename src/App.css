@@ -28,18 +28,9 @@ body{
 /**********************************************************************/
 
 #leHome{
-  /* background-color: red; */
   text-align: center;
-  /* display: flex;
-  flex-grow: 2;
-  flex-direction: column; */
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
-  /* border: 5px solid black; */
-  /* grid-template-columns: 1fr 1fr; */
-  /* grid-template-rows: repeat (10, 20px); */
-  /* grid-gap: 10px;  */
 }
 
 #uneseulcarte{
@@ -157,14 +148,11 @@ table{
   width: 80%;
   margin-top: 2%;
 }
-  
-
 
 #customers td, #customers th{
   border: 1px solid #ddd;
   padding: 8px;
 } 
-
 
 #customers tr:nth-child(even){
   background-color: #f2f2f2;
@@ -193,9 +181,17 @@ table{
   text-align: center;
 }
 
-/******************************************************************************************************/
-/********************* BUTTON & INPUT REDUC PAGE PANIER ***********************************************/
-/******************************************************************************************************/
+/******************************************************************************************/
+/********************* PAGE MON PANIER  ***************************************************/
+/******************************************************************************************/
+
+#laPagePanier{
+  /* background-color: #486064; */
+}
+
+/*******************************************************************************************/
+/********************* BUTTON & INPUT REDUC PAGE PANIER ************************************/
+/*******************************************************************************************/
 
 #goReduc{
   background-color: #8fd6e1;
@@ -213,13 +209,10 @@ table{
   background: none;
 }
 
-
-
 #inputDeleteCoupon{
   border: none;
   background-color: #f4f9f9;
 }
-
 
 button:focus {
   outline: none;
@@ -227,4 +220,52 @@ button:focus {
 
 input:focus {
   outline: none;
+}
+
+/******************************************************************************************************/
+/********************* BUTTON PAIEMENT STRIPE *********************************************************/
+/******************************************************************************************************/
+
+.couponAndBtnBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: yellow; */
+}
+
+.coupon{
+  padding-top: 2%;
+  /* background-color: blueviolet; */
+}
+
+.buttonPaye{
+  display: flex;
+  justify-content: center;
+  /* background-color: #ff0000; */
+  outline: none;
+  
+}
+
+#button-paiement-stripe{
+  margin-bottom: 2%;
+  background-color: #8fd6e1;
+  border-color: #8fd6e1;
+  font-weight: bold;
+}
+
+#button-paiement-stripe:hover{
+  background-color: #37585e;
+  border-color: #37585e;
+}
+
+#button-paiement-stripe:focus {
+  color: none;
+  background-color: none;
+  border-color: none;
+  box-shadow: none;
+}
+
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none
 }

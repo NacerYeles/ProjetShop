@@ -47,25 +47,6 @@ export default class MonPanier extends Component {
         }
     }
 
-    // verifCoupon = () => {
-    //     let reductionInput = this.state.couponReduction;
-    //     let lesClefVoucherDatabse = voucherDatabase.map(e => Object.keys(e));
-    //     let VerifDuCoupon = lesClefVoucherDatabse.find(e => e[0] === reductionInput);
-    //     if(reductionInput !== ''){
-    //         if(VerifDuCoupon !== undefined){
-    //             let findReduct = voucherDatabase.find(e => e[VerifDuCoupon[0]]);
-    //             let lePourcentage = findReduct[VerifDuCoupon[0]];
-    //             let whenApplyCoupon = this.totalWhenApplyTVA * lePourcentage;
-    //             let totalWhenApplyCoupon2 = (this.totalWhenApplyTVA - whenApplyCoupon).toFixed(2);
-    //             this.setState({
-    //                 totalWhenApplyCoupon: totalWhenApplyCoupon2
-    //             })
-    //         }else{
-    //             this.ErreurCoupon = <p>Votre coupon de réduction n'est pas valide !!!</p>
-    //         }
-    //     }
-    // }
-
     clearCoupon = () => {
         this.setState({
             couponReduction:''
@@ -89,6 +70,15 @@ export default class MonPanier extends Component {
         .catch(function (error) {
             console.log(error);
         });
+    }
+
+    totoaxiosRequest = async () => {
+        try {
+            const response = await axios.get('/toto54');
+            console.log(response);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     render() {
@@ -190,42 +180,44 @@ export default class MonPanier extends Component {
                                 {this.trAndTdCoupon}
                             </tbody>
                         </table>
+                        <div className='couponAndBtnBox'>
+                            <div className="coupon w-100">
+                                {this.context.voucherRate === null ?
+                                <Fragment>
+                                    <input
+                                    id="inputAddCoupon"
+                                    type='text'
+                                    value={this.state.couponReduction}
+                                    onChange={this.handleChange}
+                                    placeholder='Entre ton Coupon'
+                                    pattern='[A-Za-z-]{1,}'
+                                    maxLength="20"
+                                    required />
+                                    <button onClick={() => this.context.editVoucherRate(this.state.couponReduction)} id="goReduc">GO</button>
+                                    {this.ErreurCoupon.length === 0 ? <p>Entre ton coupon de réduction.</p> : this.ErreurCoupon }
+                                </Fragment>
+                                :
+                                <Fragment>
+                                    <input
+                                    id="inputDeleteCoupon"
+                                    type='text'
+                                    value={this.state.couponReduction}
+                                    onChange={this.handleChange}
+                                    placeholder='Coupon'
+                                    pattern='[A-Za-z-]{1,}'
+                                    maxLength="20"
+                                    required />
+                                    <button onClick={() => this.clearCoupon()} id="suppReduc">X</button> 
+                                    <p>Supprime ton coupon de réduction.</p>
+                                </Fragment>
+                                }
+                            </div>
+                            <div className="buttonPaye w-75">
+                                <button className="btn btn-primary w-75" id="button-paiement-stripe" onClick={() => this.axiosRequest()}>Payer</button>
+                            </div>
+                        </div>
                     </div>
-                    <div className='couponBox'>
-                        {this.context.voucherRate === null ?
-                        <Fragment>
-                            <input
-                            id="inputAddCoupon"
-                            type='text'
-                            value={this.state.couponReduction}
-                            onChange={this.handleChange}
-                            placeholder='Entre ton Coupon'
-                            pattern='[A-Za-z-]{1,}'
-                            maxLength="20"
-                            required />
-                            <button onClick={() => this.context.editVoucherRate(this.state.couponReduction)} id="goReduc">GO</button>
-                            {this.ErreurCoupon.length === 0 ? <p>Entre ton coupon de réduction.</p> : this.ErreurCoupon }
-                        </Fragment>
-                        :
-                        <Fragment>
-                            <input
-                            id="inputDeleteCoupon"
-                            type='text'
-                            value={this.state.couponReduction}
-                            onChange={this.handleChange}
-                            placeholder='Coupon'
-                            pattern='[A-Za-z-]{1,}'
-                            maxLength="20"
-                            required />
-                            <button onClick={() => this.clearCoupon()} id="suppReduc">X</button> 
-                            <p>Supprime ton coupon de réduction.</p>
-                        </Fragment>
-                        }
-                        {/* <p>Coupon de réduction.</p> */}
-                        
-                    {/* <p>{this.totalWhenApplyCoupon}</p> */}
-                    </div>
-                    <button onClick={() => this.axiosRequest()}>Paiement</button>
+                    {/* <button onClick={() => this.totoaxiosRequest()}>toto Paiement</button> */}
                 </Fragment>
             );   
         }
