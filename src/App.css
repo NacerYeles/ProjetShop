@@ -1,0 +1,230 @@
+body{
+  background-color: #f4f9f9;
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* #root{
+  background-color: yellow;
+} */
+
+.App {
+  background-color: bisque;
+  text-align: center;
+}
+
+#logo-main{
+  display: block;
+  margin: 20px auto;
+}
+
+.bg-light{
+  background-color: #8fd6e1!important;
+}
+
+/**********************************************************************/
+/********************* LES CARDS **************************************/
+/**********************************************************************/
+
+#leHome{
+  /* background-color: red; */
+  text-align: center;
+  /* display: flex;
+  flex-grow: 2;
+  flex-direction: column; */
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  /* border: 5px solid black; */
+  /* grid-template-columns: 1fr 1fr; */
+  /* grid-template-rows: repeat (10, 20px); */
+  /* grid-gap: 10px;  */
+}
+
+#uneseulcarte{
+  padding: 2%;
+  flex-grow: 1;
+  width: 20vw;
+}
+
+@media screen and (max-width: 780px) {
+  #uneseulcarte{
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #uneseulcarte{
+    width: 35vw;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  #uneseulcarte{
+    width: 50vw;
+  }
+}
+
+img{
+  margin: auto;
+}
+
+/**********************************************************************/
+/********************* CAROUSEL ***************************************/
+/**********************************************************************/
+
+.imageParProduit{
+  /* height:40rem; */
+  /* width: 70rem; */
+  margin-top: 2%;
+  /* background-color: gray; */
+  height:40rem;
+  display:flex;
+  flex-direction: column;
+}
+
+#imageOuCarousel{
+  width:20rem;
+  /* height:15rem; */
+  /* background-color: red; */
+  display:flex;
+  align-self:center;
+}
+
+#detailsProduct
+{
+  padding-top: 3rem;
+  margin: auto;
+  width:100%;
+  height:10rem;
+  /* font-size: 2vw; */
+  font: italic 1.8em "Fira Sans", serif;
+  /* background-color: blue; */
+  /* align-self:center; */
+  text-align: center;
+}
+
+#detailsProduct ul {
+  list-style-type: none;
+}
+/* #monImage{
+  margin: auto;
+} */
+
+/**************************************************************************************/
+/********************* BUTTON SHOP PAGE ACCUEIL ***************************************/
+/**************************************************************************************/
+
+
+#ShoppingCartOutlined{
+  border: none;
+  background: none;
+  color: orange;
+}
+
+#numberProduit{
+  text-align: center;
+  font: italic 1.3em "Fira Sans", serif;
+}
+
+/**************************************************************************************/
+/********************* BUTTON AJOUT STOCK PAGE PANIER ***************************************/
+/**************************************************************************************/
+
+
+#plusListe, #moinsListe, #deleteListe {
+  border: none;
+  background: none;
+  color: #8fd6e1;
+  font-size: 1.5vw;
+}
+
+
+
+/**************************************************************************************/
+/********************* PAGE MON PANIER  ***********************************************/
+/**************************************************************************************/
+
+
+table{
+  margin: auto;
+}
+
+#customers{
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 2%;
+}
+  
+
+
+#customers td, #customers th{
+  border: 1px solid #ddd;
+  padding: 8px;
+} 
+
+
+#customers tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover{
+  background-color: #ddd;
+} 
+
+#customers th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #8fd6e1;
+  color: white;
+}
+
+
+/******************************************************************************************/
+/********************* PAGE MON PANIER VIDE ***********************************************/
+/******************************************************************************************/
+
+#laPagePanierQuiEstVide{
+  /* background-color: tomato; */
+  font: italic 1.8em "Fira Sans", serif;
+  text-align: center;
+}
+
+/******************************************************************************************************/
+/********************* BUTTON & INPUT REDUC PAGE PANIER ***********************************************/
+/******************************************************************************************************/
+
+#goReduc{
+  background-color: #8fd6e1;
+  color: white;
+  border: 3px solid #8fd6e1;
+}
+
+#suppReduc{
+  /* background-color: #8fd6e1; */
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 1.8vw;
+  /* border: 3px solid #8fd6e1; */
+  border: none;
+  background: none;
+}
+
+
+
+#inputDeleteCoupon{
+  border: none;
+  background-color: #f4f9f9;
+}
+
+
+button:focus {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
