@@ -111,11 +111,24 @@ img{
 /********************* BUTTON AJOUT STOCK PAGE PANIER *********************************/
 /**************************************************************************************/
 
-#plusListe, #moinsListe, #deleteListe {
+#moinsListe, #plusListe, #deleteListe {
   border: none;
   background: none;
-  color: #8fd6e1;
-  font-size: 1.5vw;
+}
+
+#plusListe{
+  font-size: 1.3vw;
+  color: #40c526;
+}
+
+#moinsListe{
+  font-size: 1.3vw;
+  color: #da6a5b;
+}
+
+#deleteListe {
+  color: #da6a5b;
+  font-size: 1.8vw;
 }
 
 
@@ -281,7 +294,6 @@ flex-direction: column;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  /* background-color: wheat; */
 }
 
 /******************************************************************************************************/
@@ -314,6 +326,20 @@ flex-direction: column;
 }
 
 
+.btnPlusAndMoinsAndNumber{
+  /* background-color: red; */
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
+}
+
+.btnPlusAndMoins{
+  /* background-color: royalblue; */
+  display: flex;
+  flex-direction: column;
+}
+
+
 /******************************************************************************************************/
 /********************* LES MEDIA QUERIES **************************************************************/
 /******************************************************************************************************/
@@ -333,6 +359,12 @@ flex-direction: column;
     top: -0.8rem;
     left: 1rem;
   }
+  .imagePagePanier{
+    width: 3.5vw;
+  }
+  #plusListe, #moinsListe, #deleteListe{
+    font-size: 2vw;
+  }
 }
 
 @media screen and (max-width: 780px) {
@@ -342,6 +374,12 @@ flex-direction: column;
   .plusCircleOutlined, .minusCircleOutlined, .infoCircleOutlined{
     font-size: 4vw;
   }
+  .imagePagePanier{
+    width: 5vw;
+  }
+  #plusListe, #moinsListe, #deleteListe{
+    font-size: 3vw;
+  }
 }
 
 @media screen and (max-width: 680px) {
@@ -350,5 +388,11 @@ flex-direction: column;
   }
   .plusCircleOutlined, .minusCircleOutlined, .infoCircleOutlined{
     font-size: 5.5vw;
+  }
+  .imagePagePanier{
+    width: 7vw;
+  }
+  #plusListe, #moinsListe, #deleteListe{
+    font-size: 4.8vw;
   }
 }

@@ -1,10 +1,10 @@
 import React, { Component, Fragment, useContext } from 'react';
 import { AppContext } from '../AppContext';
 import { voucherDatabase } from '../lib/database.js';
-import {PlusCircleOutlined} from '@ant-design/icons';
+import {CaretUpFilled, PlusCircleOutlined, CaretDownFilled} from '@ant-design/icons';
 import {MinusCircleOutlined} from '@ant-design/icons';
 import {ShoppingCartOutlined} from '@ant-design/icons';
-import {DeleteOutlined} from '@ant-design/icons';
+import {CloseOutlined} from '@ant-design/icons';
 import { object } from 'prop-types';
 // import { useState } from 'react';
 
@@ -99,24 +99,28 @@ export default class MonPanier extends Component {
                             <img className="img-fluid imagePagePanier"
                                 src={`images/${UnProduit.carousel}`}
                                 alt={`Card image cap1 dans ${UnProduit.productCode}`}/>
-                            <p>{UnProduit.productCode}</p>
+                            {/* <p>{UnProduit.productCode}</p> */}
                         </div>
                     </td>
                     <td>{UnProduit.description}</td>
                     <td>
-                        {UnProduit.quantity}
-                        <button onClick={() =>{this.context.addToBasket(UnProduit.productCode);}}  id="plusListe">
-                            <PlusCircleOutlined />
-                        </button>
-                        <button onClick={() => {this.context.removeToBasket(UnProduit.productCode, key);}}  id="moinsListe">
-                            <MinusCircleOutlined />
-                        </button>
+                        <div className="btnPlusAndMoinsAndNumber">
+                            <p>{UnProduit.quantity}</p>
+                            <div className="btnPlusAndMoins">
+                                <button onClick={() =>{this.context.addToBasket(UnProduit.productCode);}} id="plusListe">
+                                    <CaretUpFilled />
+                                </button>
+                                <button onClick={() => {this.context.removeToBasket(UnProduit.productCode, key);}} id="moinsListe">
+                                    <CaretDownFilled />
+                                </button>
+                            </div>
+                        </div>
                     </td>
                     <td>{UnProduit.unitPrice} €</td>
                     <td>{Number.parseFloat(this.context.basket[key].unitPrice * this.context.basket[key].quantity).toFixed(2)} €</td>
                     <td>
                         <button onClick={() => {this.context.deleteAllproduct(UnProduit.productCode, key)}}  id="deleteListe">
-                            <DeleteOutlined />
+                            <CloseOutlined />
                         </button>
                     </td>
                 </tr>
@@ -155,7 +159,7 @@ export default class MonPanier extends Component {
                             <thead>
                                 <tr>
                                     <th>Produit</th>
-                                    <th>Description</th>
+                                    <th>Titre</th>
                                     <th>Quantité</th>
                                     <th>Prix Unitaire</th>
                                     <th>Prix total</th>
