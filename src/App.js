@@ -3,6 +3,8 @@ import Home from './components/Home';
 import NavHome from './components/NavHome';
 import ProduitParID from './components/ProduitParID';
 import MonPanier from './components/MonPanier';
+import My404Component from './components/My404Component';
+
 import { findProduct } from './lib/database.js';
 
 // Gestion des routes
@@ -26,7 +28,7 @@ function App(){
   const [state, setState] = useState({
     basket: [],
     voucherRate: null,
-    toto: 10,
+    ErreurCoupon: null,
     editVoucherRate: (couponInput) => {
       let lesClefVoucherDatabse = voucherDatabase.map(e => Object.keys(e));
       let VerifDuCoupon = lesClefVoucherDatabse.find(e => e[0] === couponInput);
@@ -39,7 +41,10 @@ function App(){
               voucherRate: lePourcentage
             })
         }else{
-            this.ErreurCoupon = <p>Votre coupon de réduction n'est pas valide !!!</p>
+          setState({
+            ...state,
+            ErreurCoupon: <p>Votre coupon de réduction n'est pas valide !!!</p>
+          })
         }
       }
     },
@@ -58,55 +63,51 @@ function App(){
             basket.splice(key, 1)
         }
       });
-
       setState({
         ...state,
         basket: basket
-      })
-
-      // console.log('basket =================> : ', basket[0]);
-      // console.log('toto =================> : ', toto);
-      
+      })      
     },
     addToBasket: (productCode) => {
       var basket = state.basket;
       
       let findbasket = basket.find(e => e.productCode === productCode);
       let toto = findProduct(productCode);
-
+      console.log('ZPZPZPZPZPZPZPZP : ', toto.carousel);
+      
       if(findbasket === undefined){
         let nouveauObjetExploitable = {
+          carousel: toto.carousel[0],
           unitPrice: toto.unitPrice,
           description: toto.description,
           productCode: toto.productCode,
-          quantity: 1
+          quantity: 1,
+          voucherRate: state.voucherRate
         }
         basket.push(nouveauObjetExploitable)
       }else{
+        console.log('OUVHCERRATE : ', state.voucherRate);
         findbasket.quantity++;
       }
-      setState({
-        ...state,
-        basket: basket,
-        toto: 12
-      })
+      setState((state) => ({...state, basket: basket}))
     },
-    removeToBasket: (productCode) => {
+    removeToBasket: (productCode, key) => {
       let tab = state.basket;
       // console.log("tab =====++++++++++++>", tab);
       let findbasket = tab.find(e => e.productCode === productCode);
 
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 1500,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
+      // const Toast = Swal.mixin({
+      //   toast: true,
+      //   position: 'top-end',
+      //   showConfirmButton: false,
+      //   timer: 1500,
+      //   timerProgressBar: true,
+      //   didOpen: (toast) => {
+      //   toast.addEventListener('mouseenter', Swal.stopTimer)
+      //   toast.addEventListener('mouseleave', Swal.resumeTimer)
+      //   }
+      // })
+      // console.log('WWWQQQQQQXXXXQQQQQ : ', tab[productCode]);
 
       if(findbasket === undefined){
         Swal.fire({
@@ -121,7 +122,7 @@ function App(){
             title: 'Oops...',
             text: 'Vous ne pouvez pas supprimer un élement qui ne se trouve pas dans votre panier!'
           })
-          tab.splice(tab[productCode], 1)
+          tab.splice(key, 1)
         }else{
           findbasket.quantity--;
           // Toast.fire({
@@ -130,33 +131,7 @@ function App(){
           // })
         }
       }
-      setState({
-        ...state,
-        basket: tab
-      })
-
-      
-    // if(productCode in tab){
-    //   if(tab[productCode] <= 1){
-    //     delete tab[productCode]
-        // Toast.fire({
-        //   icon: 'success',
-        //   title: `${productCode} à été supprimer avec success`
-        // })
-    //   }else{
-    //     tab[productCode]--
-    //   }
-    // }else{
-      // Swal.fire({
-      //   icon: 'error',
-      //   title: 'Oops...',
-      //   text: 'Vous ne pouvez pas supprimer un élement qui ne se trouve pas dans votre panier!'
-      // })
-    // }
-      // setState({
-      //   ...state,
-      //   basket: tab
-      // })
+      setState((state) => ({...state, basket: tab}))
     },
     clearBasket: (voucherRate) => {}
   })
@@ -179,6 +154,7 @@ function App(){
           <Route exact path='/monPanier'>
             <MonPanier/>
           </Route>
+          <Route path='*' exact={true} component={My404Component} />
         </Switch>
       </BrowserRouter>
     </AppContext.Provider>

@@ -84,23 +84,31 @@ export default class MonPanier extends Component {
     render() {
 
             console.log('TOTOTOTOTOTOTOTOTOTO : ', this.context.voucherRate);
+            console.log('TOTOTOTOTOT55555555OTOTOTOTO : ', this.context.basket);
             
             // let LaSommeTotalAvecReduce = 0;
             let tableauDesPrixTotal = [];
             let filtrerQuandQuantityEgaleAzero = this.context.basket.filter(e => e.quantity !== 0);
-            let trAndtd = filtrerQuandQuantityEgaleAzero.map((UnProduit, key) => 
+            let trAndtd = this.context.basket.map((UnProduit, key) => 
             {
                 tableauDesPrixTotal.push(Number.parseFloat(this.context.basket[key].unitPrice * this.context.basket[key].quantity).toFixed(2));
                 return (
                     <tr id={key}>
-                    <td>{UnProduit.productCode}</td>
+                    <td>
+                        <div className="imageAndTitlePanier">
+                            <img className="img-fluid imagePagePanier"
+                                src={`images/${UnProduit.carousel}`}
+                                alt={`Card image cap1 dans ${UnProduit.productCode}`}/>
+                            <p>{UnProduit.productCode}</p>
+                        </div>
+                    </td>
                     <td>{UnProduit.description}</td>
                     <td>
                         {UnProduit.quantity}
                         <button onClick={() =>{this.context.addToBasket(UnProduit.productCode);}}  id="plusListe">
                             <PlusCircleOutlined />
                         </button>
-                        <button onClick={() => {this.context.removeToBasket(UnProduit.productCode);}}  id="moinsListe">
+                        <button onClick={() => {this.context.removeToBasket(UnProduit.productCode, key);}}  id="moinsListe">
                             <MinusCircleOutlined />
                         </button>
                     </td>
@@ -194,7 +202,7 @@ export default class MonPanier extends Component {
                                     maxLength="20"
                                     required />
                                     <button onClick={() => this.context.editVoucherRate(this.state.couponReduction)} id="goReduc">GO</button>
-                                    {this.ErreurCoupon.length === 0 ? <p>Entre ton coupon de réduction.</p> : this.ErreurCoupon }
+                                    {this.context.ErreurCoupon === null ? <p>Entre ton coupon de réduction.</p> : this.context.ErreurCoupon}
                                 </Fragment>
                                 :
                                 <Fragment>
@@ -213,7 +221,7 @@ export default class MonPanier extends Component {
                                 }
                             </div>
                             <div className="buttonPaye w-75">
-                                <button className="btn btn-primary w-75" id="button-paiement-stripe" onClick={() => this.axiosRequest()}>Payer</button>
+                                <button className="btn btn-primary w-75" id="button-paiement-stripe" onClick={() => this.axiosRequest()}>PAYER</button>
                             </div>
                         </div>
                     </div>

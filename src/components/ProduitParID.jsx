@@ -30,10 +30,12 @@ function ProduitParID ({}) {
         </div>
     </div>
     :
+    <div className="imageParProduit">
         <Carousel {...settings} />
+    </div>
     
     return (
-        <div className="imageParProduit">
+        <div>
             {ImageOuCarousel}
             <div id="detailsProduct">
                 <ul>

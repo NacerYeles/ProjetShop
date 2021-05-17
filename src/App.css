@@ -33,28 +33,37 @@ body{
   flex-wrap: wrap;
 }
 
-#uneseulcarte{
+.uneseulcarte{
   padding: 2%;
   flex-grow: 1;
   width: 20vw;
 }
 
-@media screen and (max-width: 780px) {
-  #uneseulcarte{
-    width: 40vw;
-  }
+.uneseulcarte button {
+  border: none;
+  background: none;
 }
 
-@media screen and (max-width: 1100px) {
-  #uneseulcarte{
-    width: 35vw;
-  }
+
+.plusCircleOutlined, .minusCircleOutlined {
+  border: none;
+  background: none;
+  font-size: 1.6vw;
 }
 
-@media screen and (max-width: 680px) {
-  #uneseulcarte{
-    width: 50vw;
-  }
+.infoCircleOutlined{
+  border: none;
+  background: none;
+  font-size: 2vw;
+  color: orange;
+}
+
+.plusCircleOutlined{
+  color: green;
+}
+
+.minusCircleOutlined{
+  color: red;
 }
 
 img{
@@ -66,21 +75,13 @@ img{
 /**********************************************************************/
 
 .imageParProduit{
-  /* height:40rem; */
-  /* width: 70rem; */
   margin-top: 2%;
-  /* background-color: gray; */
-  height:40rem;
-  display:flex;
-  flex-direction: column;
 }
 
 #imageOuCarousel{
+  padding-top: 2%;
   width:20rem;
-  /* height:15rem; */
-  /* background-color: red; */
-  display:flex;
-  align-self:center;
+  margin: auto;
 }
 
 #detailsProduct
@@ -89,30 +90,17 @@ img{
   margin: auto;
   width:100%;
   height:10rem;
-  /* font-size: 2vw; */
   font: italic 1.8em "Fira Sans", serif;
-  /* background-color: blue; */
-  /* align-self:center; */
   text-align: center;
 }
 
 #detailsProduct ul {
   list-style-type: none;
 }
-/* #monImage{
-  margin: auto;
-} */
 
 /**************************************************************************************/
 /********************* BUTTON SHOP PAGE ACCUEIL ***************************************/
 /**************************************************************************************/
-
-
-#ShoppingCartOutlined{
-  border: none;
-  background: none;
-  color: orange;
-}
 
 #numberProduit{
   text-align: center;
@@ -120,9 +108,8 @@ img{
 }
 
 /**************************************************************************************/
-/********************* BUTTON AJOUT STOCK PAGE PANIER ***************************************/
+/********************* BUTTON AJOUT STOCK PAGE PANIER *********************************/
 /**************************************************************************************/
-
 
 #plusListe, #moinsListe, #deleteListe {
   border: none;
@@ -130,7 +117,6 @@ img{
   color: #8fd6e1;
   font-size: 1.5vw;
 }
-
 
 
 /**************************************************************************************/
@@ -268,4 +254,101 @@ input:focus {
 .btn.focus, .btn:focus {
   outline: 0;
   box-shadow: none
+}
+
+/******************************************************************************************************/
+/********************* PAGE 404 NOT FOUND *************************************************************/
+/******************************************************************************************************/
+
+.PageNotFound404{
+display: flex;
+flex-direction: column;
+}
+
+.PageNotFound404 h3{
+  text-align: center;
+}
+
+/*******************************************************************************************************/
+/********************* LES IMAGES DE LA PAGE PANIER ****************************************************/
+/*******************************************************************************************************/
+
+.imagePagePanier{
+  width: 2.8vw;
+}
+
+.imageAndTitlePanier{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  /* background-color: wheat; */
+}
+
+/******************************************************************************************************/
+/********************* LE PANIER AVEC LE NOMBRE DE PRODUIT A LINTERIEUR DANS LE NAV********************/
+/******************************************************************************************************/
+
+.badgesNavPanier{
+  background-color: wheat;
+  position: relative;
+}
+
+#shoppingCartOutlined{
+  /* background-color: yellowgreen; */
+  position: absolute;
+  top: -1.6rem;
+  left: 0;
+}
+
+#numberForNavPanier{
+  font-weight: bold;
+  font-size: 1vw;
+  /* background-color: violet; */
+  position: absolute;
+  top: -0.7rem;
+  left: 1.2rem;
+}
+
+#shoppingCartOutlined2{
+  font-size: 3vw;
+}
+
+
+/******************************************************************************************************/
+/********************* LES MEDIA QUERIES **************************************************************/
+/******************************************************************************************************/
+
+@media screen and (max-width: 1100px) {
+  .uneseulcarte{
+    width: 35vw;
+  }
+  .plusCircleOutlined, .minusCircleOutlined,  .infoCircleOutlined{
+    font-size: 3vw;
+  }
+  #shoppingCartOutlined2{
+    font-size: 4vw;
+  }
+  #numberForNavPanier{
+    font-size: 1.5vw;
+    top: -0.8rem;
+    left: 1rem;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .uneseulcarte{
+    width: 40vw;
+  }
+  .plusCircleOutlined, .minusCircleOutlined, .infoCircleOutlined{
+    font-size: 4vw;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .uneseulcarte{
+    width: 50vw;
+  }
+  .plusCircleOutlined, .minusCircleOutlined, .infoCircleOutlined{
+    font-size: 5.5vw;
+  }
 }

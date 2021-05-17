@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from '../AppContext';
 import { Link } from 'react-router-dom';
+import Badges from "./Badges";
 
 function NavHome ({}) {
 
@@ -20,12 +21,16 @@ function NavHome ({}) {
         <Link to={`/`}>
           <a className="navbar-brand" href="#">Shop</a>
         </Link>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <Link to={`/monPanier`}>
                 <a className="nav-item nav-link active" href="#">Mon Panier<span className="sr-only">(current)</span></a>
             </Link>
           </div>
+          <Badges number = {basket.length} />
         </div>
       </nav>
     </div>

@@ -44,7 +44,7 @@ function Cards(props) {
     }
 
     return (
-        <div id="uneseulcarte">
+        <div className="uneseulcarte">
             <div className="card">
                         <img className="img-fluid"
                             src={`images/${productCode.toLowerCase()}.${typeImage}`}
@@ -54,17 +54,15 @@ function Cards(props) {
                             <p className="card-text"> {description}</p>
                             <p id="phraseinfosBtn"> {price} € </p>
                             <Link className="w-25" to={`/pageduproduit/${productCode}`}>
-                                <InfoCircleOutlined style={{ fontSize: '2vw', color: '#FFA223'}} />
+                                <InfoCircleOutlined className="infoCircleOutlined" />
                             </Link>
                             <div>
                                 <strong>Ajout dans panier : </strong>
-                                <button data-code={productCode} onClick={() => handleclickPlus(productCode)} id="ShoppingCartOutlined">
-                                    {/* <PlusCircleTwoTone style={{ fontSize: '2vw'}} /> */}
-                                    <PlusCircleOutlined style={{ fontSize: '2vw', color: 'green'}} />
+                                <button data-code={productCode} onClick={() => handleclickPlus(productCode)}>
+                                    <PlusCircleOutlined className="plusCircleOutlined" />
                                 </button>
-                                <button data-code={productCode} onClick={() => handleclickMoins(productCode)} id="ShoppingCartOutlined">
-                                    {/* <MinusCircleTwoTone style={{ fontSize: '2vw', color: 'red'}} /> */}
-                                    <MinusCircleOutlined style={{ fontSize: '2vw', color: '#FF1C45'}} />
+                                <button data-code={productCode} onClick={() => handleclickMoins(productCode)}>
+                                    <MinusCircleOutlined className="minusCircleOutlined" />
                                 </button>
                             </div>
                         </div>

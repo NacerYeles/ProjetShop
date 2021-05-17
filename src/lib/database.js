@@ -14,7 +14,6 @@ export const voucherDatabase = [
     { 'SOLDES_ETE'   : 0.25 }
 ];
 
-
 export function findProduct(productCode) {
     return productDatabase.find(e => productCode === e.productCode)
 }
