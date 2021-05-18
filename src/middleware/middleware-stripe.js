@@ -11,12 +11,7 @@ let images = {
 module.exports = async (req, res) => {
         console.log('req.body ==========>', req.body);
 
-        const coupon = await stripe.coupons.create({
-            percent_off: parseInt(req.body.promo) ,
-            duration: 'once',
-        });
-
-        console.log('coupon ======> ', coupon);
+        console.log('parseInt(req.body.promo) =====> ', req.body.voucherRate);
 
         let mesItems = [];
         req.body.basket.map(e => {
@@ -36,16 +31,26 @@ module.exports = async (req, res) => {
                     quantity: e.quantity
             })
         })
-        const session = await stripe.checkout.sessions.create({
+
+        const sessionWithoutCoupon = {
             payment_method_types: ['card'],
             line_items: mesItems,
             mode: 'payment',
-            discounts: [{
-                coupon: coupon.id,
-            }],
             success_url: 'https://example.com/success',
             cancel_url: 'https://example.com/cancel',
-        });
+        }
+
+        if(req.body.voucherRate !== null){
+            const coupon = await stripe.coupons.create({
+                percent_off: req.body.voucherRate * 100 ,
+                duration: 'once',
+            });
+            sessionWithoutCoupon.discounts = [{
+                coupon: coupon.id
+            }]
+        }
+
+        const session = await stripe.checkout.sessions.create(sessionWithoutCoupon);
         
         res.json({ id: session.id });
 }
