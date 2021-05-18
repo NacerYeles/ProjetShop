@@ -36,15 +36,9 @@ function App(){
         if(VerifDuCoupon !== undefined){
             let findReduct = voucherDatabase.find(e => e[VerifDuCoupon[0]]);
             let lePourcentage = findReduct[VerifDuCoupon[0]];
-            setState({
-              ...state,
-              voucherRate: lePourcentage
-            })
+            setState((state) => ({...state, voucherRate: lePourcentage}))
         }else{
-          setState({
-            ...state,
-            ErreurCoupon: <p>Votre coupon de réduction n'est pas valide !!!</p>
-          })
+            setState((state) => ({...state, ErreurCoupon: <p>Votre coupon de réduction n'est pas valide !!!</p>}))
         }
       }
     },
@@ -82,7 +76,7 @@ function App(){
           description: toto.description,
           productCode: toto.productCode,
           quantity: 1,
-          voucherRate: state.voucherRate
+          promo: 50
         }
         basket.push(nouveauObjetExploitable)
       }else{

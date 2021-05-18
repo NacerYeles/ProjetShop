@@ -9,7 +9,15 @@ let images = {
 };
 
 module.exports = async (req, res) => {
-        console.log('req.body ==========>', req.body.basket[0].productCode);
+        console.log('req.body ==========>', req.body);
+
+        const coupon = await stripe.coupons.create({
+            percent_off: parseInt(req.body.promo) ,
+            duration: 'once',
+        });
+
+        console.log('coupon ======> ', coupon);
+
         let mesItems = [];
         req.body.basket.map(e => {
             let monImage = [];
@@ -32,6 +40,9 @@ module.exports = async (req, res) => {
             payment_method_types: ['card'],
             line_items: mesItems,
             mode: 'payment',
+            discounts: [{
+                coupon: coupon.id,
+            }],
             success_url: 'https://example.com/success',
             cancel_url: 'https://example.com/cancel',
         });

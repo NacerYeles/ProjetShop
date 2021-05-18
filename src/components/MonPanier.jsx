@@ -1,8 +1,7 @@
 import React, { Component, Fragment, useContext } from 'react';
 import { AppContext } from '../AppContext';
 import { voucherDatabase } from '../lib/database.js';
-import {CaretUpFilled, PlusCircleOutlined, CaretDownFilled} from '@ant-design/icons';
-import {MinusCircleOutlined} from '@ant-design/icons';
+import {CaretUpFilled, TagOutlined, CaretDownFilled} from '@ant-design/icons';
 import {ShoppingCartOutlined} from '@ant-design/icons';
 import {CloseOutlined} from '@ant-design/icons';
 import { object } from 'prop-types';
@@ -61,7 +60,7 @@ export default class MonPanier extends Component {
         // // Call your backend to create the Checkout Session
         // // const response = await fetch('/create-checkout-session', { method: 'POST'})
 
-        await axios.post('/create-checkout-session', {basket  : this.context.basket})
+        await axios.post('/create-checkout-session', {basket: this.context.basket, voucherRate: this.context.voucherRate})
         .then(async response => {
             stripe.redirectToCheckout({
                 sessionId: response.data.id,
@@ -136,7 +135,7 @@ export default class MonPanier extends Component {
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td><strong>Montant total apres calcule de votre coupon:</strong> </td>
+                                        <td><strong>- {reduc.toFixed(2)} € de réduction <TagOutlined /></strong> </td>
                                         <td>{(this.totalWhenApplyTVA - reduc).toFixed(2)} €</td>
                                     </tr>
             }else{
