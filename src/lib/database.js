@@ -1,7 +1,7 @@
 export const productDatabase = [
     { carousel:['dbz.jpg'], stock: '300', imageType: 'jpg', productCode: 'DBZ', description: 'Dragonball Z Kai - Saga de Boo',   unitPrice: 29.90 },
     { carousel:['fma.jpg'], stock: '300', imageType: 'jpg', productCode: 'FMA', description: 'Full Metal Alchemist Brotherhood', unitPrice: 19.50 },
-    { carousel:['sky.jpg', 'opm.jpg', 'opm.jpg'], stock: '300', imageType: 'jpg', productCode: 'SKY', description: 'Skyfall',    unitPrice: 22.50 },
+    { carousel:['sky.jpg', 'SkyFall-Teaser-5.png', 'sky3.png'], stock: '300', imageType: 'jpg', productCode: 'SKY', description: 'Skyfall',    unitPrice: 22.50 },
     { carousel:['opm.jpg'], stock: '300', imageType: 'jpg', productCode: 'OPM', description: 'One Punch Man',                    unitPrice: 25.70 },
     { carousel:['swt.jpg'], stock: '300', imageType: 'jpg', productCode: 'SWT', description: 'Star Wars épisode V',              unitPrice: 29.90 },
     { carousel:['Wano_Country_Arc.png', 'One_piece_gold.png', 'One_piece_Stamped.png'], stock: '300', imageType: 'png', productCode: 'Wano_Country_Arc', description: 'One Piece Wano',              unitPrice: 29.90 }

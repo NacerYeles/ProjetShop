@@ -23,6 +23,10 @@ import Swal from 'sweetalert2';
 // VoucherRate
 import { voucherDatabase } from './lib/database.js';
 
+const saveStateToLocalStorage = (state) => {
+  localStorage.setItem('MonPanierBasket', JSON.stringify(state))
+}
+
 function App(){
 
   const [state, setState] = useState({
@@ -60,7 +64,8 @@ function App(){
       setState({
         ...state,
         basket: basket
-      })      
+      })
+      saveStateToLocalStorage(basket)      
     },
     addToBasket: (productCode) => {
       var basket = state.basket;
@@ -84,6 +89,8 @@ function App(){
         findbasket.quantity++;
       }
       setState((state) => ({...state, basket: basket}))
+      
+      saveStateToLocalStorage(basket)
     },
     removeToBasket: (productCode, key) => {
       let tab = state.basket;
@@ -103,6 +110,8 @@ function App(){
       // })
       // console.log('WWWQQQQQQXXXXQQQQQ : ', tab[productCode]);
 
+      let findForDelete = state.basket.map(e => e.description);
+
       if(findbasket === undefined){
         Swal.fire({
           icon: 'error',
@@ -116,7 +125,7 @@ function App(){
             title: 'Oops...',
             text: 'Vous ne pouvez pas supprimer un élement qui ne se trouve pas dans votre panier!'
           })
-          tab.splice(key, 1)
+          tab.splice(findForDelete.indexOf(findbasket.description), 1)
         }else{
           findbasket.quantity--;
           // Toast.fire({
@@ -126,9 +135,12 @@ function App(){
         }
       }
       setState((state) => ({...state, basket: tab}))
+      saveStateToLocalStorage(tab)
     },
     clearBasket: (voucherRate) => {}
   })
+
+  // localStorage.setItem('PanierBasket', JSON.stringify(state.basket))
 
   // console.log("🚀 ~ file: App.js ~ line 19 ~ App ~ state", state.basket)
   

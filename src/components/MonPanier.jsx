@@ -82,8 +82,8 @@ export default class MonPanier extends Component {
 
     render() {
 
-            console.log('TOTOTOTOTOTOTOTOTOTO : ', this.context.voucherRate);
-            console.log('TOTOTOTOTOT55555555OTOTOTOTO : ', this.context.basket);
+            // console.log('TOTOTOTOTOTOTOTOTOTO : ', this.context.voucherRate);
+            // console.log('TOTOTOTOTOT55555555OTOTOTOTO : ', this.context.basket);
             
             // let LaSommeTotalAvecReduce = 0;
             let tableauDesPrixTotal = [];
