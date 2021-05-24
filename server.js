@@ -24,8 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //--------------------------------------------------------------------
 //     Ecoute du serveur HTTP
 //--------------------------------------------------------------------
-app.listen(4040,() => {
-    console.log(`Le serveur est démarré : http://localhost:${4040}`);
+app.listen(5050,() => {
+    console.log(`Le serveur est démarré : http://localhost:${5050}`);
 });
 
 // pour avoir acces au variable d'environement dans mon fichier env avec cley valeur exemple : {API_KEY: 'toto'}
