@@ -365,6 +365,10 @@ flex-direction: column;
   #plusListe, #moinsListe, #deleteListe{
     font-size: 2vw;
   }
+
+  #suppReduc{
+    font-size: 2.3vw;
+  }
 }
 
 @media screen and (max-width: 780px) {
@@ -380,6 +384,11 @@ flex-direction: column;
   #plusListe, #moinsListe, #deleteListe{
     font-size: 3vw;
   }
+
+  #suppReduc{
+    font-size: 3vw;
+  }
+
 }
 
 @media screen and (max-width: 680px) {
@@ -394,5 +403,9 @@ flex-direction: column;
   }
   #plusListe, #moinsListe, #deleteListe{
     font-size: 4.8vw;
+  }
+
+  #suppReduc{
+    font-size: 4vw;
   }
 }

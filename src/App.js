@@ -30,7 +30,7 @@ const saveStateToLocalStorage = (state) => {
 function App(){
 
   const [state, setState] = useState({
-    basket: [],
+    basket: localStorage.getItem('MonPanierBasket') ? JSON.parse(localStorage.getItem('MonPanierBasket')) : [],
     voucherRate: null,
     ErreurCoupon: null,
     editVoucherRate: (couponInput) => {
