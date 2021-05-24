@@ -19,6 +19,10 @@ body{
   margin: 20px auto;
 }
 
+.navbar {
+  height: 4vw;
+}
+
 .bg-light{
   background-color: #8fd6e1!important;
 }
@@ -28,6 +32,8 @@ body{
 /**********************************************************************/
 
 #leHome{
+  /* position: relative;
+  bottom: 20vw; */
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -337,6 +343,94 @@ flex-direction: column;
   /* background-color: royalblue; */
   display: flex;
   flex-direction: column;
+}
+
+
+/******************************************************************************************************/
+/********************* LE DIV QUI POPUP QUAND ON CLIQUE SUR ICON PANIER *******************************/
+/******************************************************************************************************/
+
+/* a.aDuButtonPanier{
+  color: #1c1f1f;
+} */
+
+.popUpPanier h3{
+  font-size: 1vw;
+}
+
+.imagesPopUp{
+  width: 6vw;
+}
+
+.popUpPanier{
+  /* width: 15vw ; */
+  height: 20vw;
+  background-color: #f7f3f3;
+  position: absolute;
+  z-index: 1;
+  top: 4vw;
+  left: 0.5vw;
+}
+
+.enTeteDuPopUp{
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  /* background-color: aqua; */
+}
+
+.enTeteDuPopUpIcon{
+  /* flex: 1; */
+  /* background-color: brown; */
+  /* align-self: flex-end; */
+  font-size: 1.6vw;
+  height: 3.3vw;
+}
+
+.enTeteDuPopUpText{
+  flex: 1;
+  /* background-color: burlywood; */
+}
+
+.infosAcoterImagesPopUp{
+  /* background-color: cyan; */
+  text-align: center;
+}
+
+.unBlockImageAndInfosAndDelete{
+  background-color: #8fd6e1;
+  /* height: 10vw; */
+  padding: 3%;
+  margin-top: 1vw;
+  display: flex;
+  overflow: auto;
+}
+
+.sousTeteDuPopUpText{
+  /* background-color: #5d9292; */
+  display: flex;
+}
+
+.leTitleToal{
+  /* background-color: cyan; */
+  flex: 1;
+}
+
+.deleteButtonPopUp{
+  text-align: end;
+  font-size: 1.4vw;
+  /* background-color: chocolate; */
+}
+
+.unBlockTextAndbuttonPoubelle{
+  flex: 1;
+  /* background-color: cyan; */
+  display: flex;
+  flex-direction: column;
+}
+
+.sousTeteDuPopUpText{
+  flex: 1;
 }
 
 

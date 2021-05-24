@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { AppContext } from '../AppContext';
 import { Link } from 'react-router-dom';
 import Badges from "./Badges";
+import PopUpPanier from "./PopUpPanier";
 
 function NavHome ({}) {
 
-  const context = useContext(AppContext);
-  const { basket, voucherRate, addToBasket, clearBasket } = context
+    const context = useContext(AppContext);
+    const { basket, voucherRate, addToBasket, clearBasket } = context
 
   console.log('TATATATATATATATATTATATATTAT', context);
   let filtrerQuandQuantityEgaleAzero = Object.keys(basket.filter(e => e.quantity !== 0)).length;
@@ -31,6 +32,9 @@ function NavHome ({}) {
             </Link>
           </div>
           <Badges number = {basket.length} />
+        </div>
+        <div className="popUpPanier w-25">
+          <PopUpPanier />
         </div>
       </nav>
     </div>

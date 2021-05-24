@@ -1,18 +1,21 @@
 import {ShoppingOutlined} from '@ant-design/icons';
 import React from "react";
+import { Link } from 'react-router-dom';
+import PopUpPanier from './PopUpPanier';
 
 function Badges ({number}) {
 
 return  (
-    <div className="badgesNavPanier">
-        {/* <Icon type="shopping-cart" style={{ fontSize: 16, color: '#08c' }}/> */}
-        <div id="shoppingCartOutlined">
-            <ShoppingOutlined id="shoppingCartOutlined2"/>
+    <Link onClick={() => alert('coucou')  }>
+        <div className="badgesNavPanier">
+            <div id="shoppingCartOutlined">
+                <ShoppingOutlined id="shoppingCartOutlined2"/>
+            </div>
+            <div id="numberForNavPanier">
+                {number}
+            </div>
         </div>
-        <div id="numberForNavPanier">
-            {number}
-        </div>
-    </div>
+    </Link>
     );
 } 
 
