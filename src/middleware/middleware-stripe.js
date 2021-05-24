@@ -37,7 +37,7 @@ module.exports = async (req, res) => {
             line_items: mesItems,
             mode: 'payment',
             success_url: 'https://example.com/success',
-            cancel_url: 'https://example.com/cancel',
+            cancel_url: 'http://localhost:3000/monPanier',
         }
 
         if(req.body.voucherRate !== null){
